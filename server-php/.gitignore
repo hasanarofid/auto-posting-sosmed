@@ -1,0 +1,9 @@
+config.local.php
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+data/*
+!data/.htaccess
+!data/.gitkeep
+*.log
+

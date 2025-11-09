@@ -1,0 +1,36 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Set base directory (adjust based on your folder structure)
+# If API is in /sosmed/api/, use: RewriteBase /sosmed/api/
+# If API is in /api/, use: RewriteBase /api/
+# For subdomain sosmed.solusicodekita.com/api/, use:
+RewriteBase /api/
+
+# Handle CORS preflight
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ index.php [L]
+
+# Route all API requests to index.php
+# Exclude uploads folder from routing
+RewriteCond %{REQUEST_URI} !^/api/uploads/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Security: Deny access to config files
+<FilesMatch "^(config\.local\.php|config\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable PHP error reporting (disable in production)
+# php_flag display_errors On
+# php_value error_reporting E_ALL
+
+# Set upload limits
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+

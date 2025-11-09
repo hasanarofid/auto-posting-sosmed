@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables and config files with sensitive data
+.env
+*.env
+.env.local
+.env.*.local
+
+# Config files with tokens/credentials (NEVER commit these!)
+**/config.local.php
+deploy/
+server-php/config.local.php
+
+# Uploads and data directories
+server/uploads/
+server/data/
+**/uploads/
+**/data/
+
+# Build outputs
+client/build/
+dist/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Files with sensitive information
+*CREDENTIALS*
+*TOKEN*
+*SECRET*
+*PASSWORD*
+

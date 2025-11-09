@@ -1,0 +1,26 @@
+# Frontend .htaccess for React Router
+# Place this file in the root directory (sosmed/)
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Redirect all requests to index.html (for React Router)
+# Except API requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/api/
+RewriteRule ^ index.html [L]
+
+# Security: Deny access to sensitive files
+<FilesMatch "^(\.env|\.git|config\.local\.php|package\.json|README\.md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enable CORS for API (if needed)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
