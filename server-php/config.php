@@ -14,8 +14,8 @@ if (file_exists(__DIR__ . '/config.local.php')) {
     define('DATA_DIR', __DIR__ . '/data');
     
     // Facebook API
-    define('FACEBOOK_APP_ID', '812332124920892');
-    define('FACEBOOK_APP_SECRET', 'b1981ea92f4a092b2bdf17b6c7b9e230');
+    define('FACEBOOK_APP_ID', 'YOUR_APP_ID');
+    define('FACEBOOK_APP_SECRET', 'YOUR_APP_SECRET');
     define('FACEBOOK_ACCESS_TOKEN', '');
     define('FACEBOOK_PAGE_ID', '');
     define('FACEBOOK_PAGE_ACCESS_TOKEN', '');
